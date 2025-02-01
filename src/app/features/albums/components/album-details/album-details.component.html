@@ -1,1 +1,49 @@
-<p>album-details works!</p>
+<div *ngIf="album" class="container mx-auto p-4">
+    <!-- Display Album Details -->
+    <h1 class="text-3xl font-semibold text-center mb-6">{{ album.title }}</h1>
+    <p class="text-center text-gray-600">Artist: {{ album.artist }}</p>
+    <p class="text-center text-gray-600">Year: {{ album.year }}</p>
+
+    <!-- Display Song Details -->
+    <h2 class="text-2xl font-semibold mt-6">Songs:</h2>
+
+    <ul class="list-disc pl-6 mt-2">
+        <li *ngFor="let song of album.songs" class="text-gray-700">
+            <strong>{{ song.title }}</strong> ({{ song.duration }} mins) - Track {{ song.trackNumber }}
+
+            <!-- Additional song fields -->
+            <div *ngIf="song.description" class="mt-1">
+                <strong>Description:</strong> {{ song.description }}
+            </div>
+
+            <div *ngIf="song.category" class="mt-1">
+                <strong>Category:</strong> {{ song.category }}
+            </div>
+
+            <div *ngIf="song.dateAdded" class="mt-1">
+                <strong>Date Added:</strong> {{ song.dateAdded | date:'mediumDate' }}
+            </div>
+
+            <!-- Play Song Button -->
+            <button (click)="playSong(song.id)"
+                class="mt-2 bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+                Play Song
+            </button>
+        </li>
+    </ul>
+
+    <!-- If no songs are available -->
+    <div *ngIf="album.songs.length === 0" class="text-center text-gray-600 mt-2">
+        No songs available for this album.
+    </div>
+
+    <button (click)="goBack()" class="mt-4 bg-gray-500 text-white py-2 px-4 rounded-md hover:bg-gray-600">
+        Back to Albums
+    </button>
+</div>
+
+<!-- Loading state (optional) -->
+<div *ngIf="!album" class="container mx-auto p-4">
+    <p class="text-center text-gray-600">Loading album details...</p>
+</div>
+

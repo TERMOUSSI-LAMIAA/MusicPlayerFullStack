@@ -40,4 +40,6 @@ export class AlbumListComponent implements OnInit {
   viewAlbum(id: string): void {
     this.router.navigate(['/albums', id]);
   }
+
+ 
 }

@@ -31,35 +31,22 @@ export class AlbumService {
   }
 
   // Get a specific album by its ID for the user
-  getAlbum(id: string): Observable<Album> {
-    return this.http.get<Album>(`${this.apiUrl}/user/albums/${id}`);
+  getAlbumById(id: string): Observable<Album> {
+    return this.http.get<Album>(`${this.apiUrl}/user/albums/${id}`, {
+      headers: this.getAuthHeaders()  // Attach the Authorization header
+    }).pipe(
+      tap(response => console.log('Response from API:', response))  // Log full response
+    );
   }
 
-  // Create a new album (Admin only)
-  createAlbum(album: Album): Observable<Album> {
-    return this.http.post<Album>(`${this.apiUrl}/admin/albums`, album);
-  }
 
-  // Update an existing album (Admin only)
-  updateAlbum(id: string, album: Album): Observable<Album> {
-    return this.http.put<Album>(`${this.apiUrl}/admin/albums/${id}`, album);
-  }
-
-  // Delete an album (Admin only)
-  deleteAlbum(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/admin/albums/${id}`);
-  }
 
   // Search albums by title for the user
   searchAlbumsByTitle(title: string): Observable<Album[]> {
     return this.http.get<Album[]>(`${this.apiUrl}/user/albums/search/title?title=${title}`);
   }
 
-  // Search albums by artist for the user
-  searchAlbumsByArtist(artist: string): Observable<Album[]> {
-    return this.http.get<Album[]>(`${this.apiUrl}/user/albums/search/artist?artist=${artist}`);
-  }
-
+ 
   // Filter albums by year for the user
   filterAlbumsByYear(year: number): Observable<Album[]> {
     return this.http.get<Album[]>(`${this.apiUrl}/user/albums/filter/year?year=${year}`);
