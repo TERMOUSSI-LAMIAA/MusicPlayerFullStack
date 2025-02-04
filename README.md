@@ -1,27 +1,77 @@
-# FSMusicPlayer
+# 🎶 Fullstack Musical Streaming App 🎧
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.11.
+This is a fullstack application for streaming music, combining a **Spring Boot REST API backend** with a modern **Angular frontend**. The app allows users to browse, search, and stream music, while managing albums, songs, and user authentication.
 
-## Development server
+## 🛠️ Technologies & Tools
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Backend (Spring Boot)
+- 🚀 **Spring Boot**
+- 🔒 **Spring Security** (JWT)
+- 🗄️ **MongoDB** with **Spring Data MongoDB**
+- 🎵 **GridFS** for secure audio file storage
+- 🔌 **REST API**
+- 🔄 **Spring Bean Validation**
+- 🧩 **Design Patterns** (Repository, DTO, Mapper)
+- 🧪 **Unit Testing** with **JUnit** & **Mockito**
+- 🐳 **Docker** & **Jenkins** for continuous deployment
 
-## Code scaffolding
+### Frontend (Angular)
+- 🔶 **Angular 17**
+- 🔄 **NgRx** for state management
+- 📝 **TypeScript**
+- 🔀 **RxJS**
+- 🖥️ **Reactive Forms**
+- 🌟 **Tailwind** for styling
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 🚀 Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Backend (Spring Boot)
+#### 🎵 **Album Management**
+- 📜 List albums with pagination (User or Admin)
+- 🔍 Search albums by title or artist with pagination & sorting (User or Admin)
+- 🔄 Filter albums by year (User or Admin)
+- ➕ Add, ✏️ Edit, and ❌ Delete albums (Admin only)
 
-## Running unit tests
+#### 🎶 **Song Management**
+- 📜 List songs with pagination (User or Admin)
+- 🔍 Search songs by title with pagination & sorting (User or Admin)
+- 🎵 List songs by album with pagination & sorting (User or Admin)
+- ➕ Add, ✏️ Edit, and ❌ Delete songs (Admin only)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### 👥 **User Management**
+- 🔑 User authentication via `/api/auth/login`
+- ➕ User registration via `POST /api/auth/register`
+- 👤 List users (Admin only)
+- 🔄 Manage user roles (Admin only)
 
-## Running end-to-end tests
+#### 📂 **Audio File Management**
+- 📤 Upload files (15MB max) in MP3, WAV, or OGG format
+- 💾 Store audio files securely in GridFS
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+---
 
-## Further help
+### Frontend (Angular)
+#### 🎵 **Track Management (CRUD)**
+- 📝 Create, ✏️ Update, ❌ Delete songs with NgRx state management
+- 📜 Manage song metadata (name, artist, description, duration, category)
+- 📤 Upload audio files
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### 🎧 **Audio Player**
+- ▶️ Play, ⏸️ Pause, 🔄 Next, ⏮️ Previous
+- 🔊 Control volume and progress
+- 🔁 Handle player state with NgRx
+
+#### 📱 **User Interface**
+- 🔑 Authentication and Registration pages
+- 🎵 Library page showing album list
+- 📀 Detailed album page with all tracks
+- 🔍 Search bar and filter system on both pages
+- 🎧 Integrated audio player
+
+---
+
+## Author and Contact Information
+- Termoussi Lamiaa 
+- Email: lamiaa3105@gmail.com
