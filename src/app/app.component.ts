@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterModule, AlbumListComponent, AlbumDetailsComponent,  AlbumSearchFilterComponent ],
+  imports: [RouterOutlet, RouterModule ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

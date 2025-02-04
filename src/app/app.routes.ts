@@ -6,6 +6,7 @@ import { AlbumSearchFilterComponent } from './features/albums/components/album-s
 import { LoginComponent } from './features/users/components/login/login.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { MusicPlayerComponent } from './features/songs/components/music-player/music-player.component';
+import { RegisterComponent } from './features/users/components/register/register.component';
 
 export const routes: Routes = [
     {
@@ -13,15 +14,19 @@ export const routes: Routes = [
         component: LoginComponent
     },
     {
+        path: 'register',
+        component: RegisterComponent
+    },
+    {
         path: 'albums',
         component: AlbumListComponent,
         canActivate: [AuthGuard]
     },
-    {
-        path: '',
-        redirectTo: '/albums',
-        pathMatch: 'full'
-    },
+    // {
+    //     path: '',
+    //     redirectTo: '/albums',
+    //     pathMatch: 'full'
+    // },
     { path: 'albums/:id', component: AlbumDetailsComponent },
     { path: 'player', component: MusicPlayerComponent }
 ];

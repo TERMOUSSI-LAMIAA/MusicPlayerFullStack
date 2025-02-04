@@ -97,4 +97,28 @@ export class AuthService {
                 })
             );
     }
+
+    onSubmit() {
+        if (this.registerForm.valid) {
+            this.isSubmitting = true;
+            const userDetails = this.registerForm.value;
+
+            // Call the register method from AuthService
+            this.authService.register(userDetails).subscribe({
+                next: response => {
+                    console.log('Registration successful:', response);
+                    // Optionally redirect or show a success message
+                    // You might want to log in the user automatically here
+                    // this.authService.login({ login: userDetails.login, password: userDetails.password }).subscribe();
+                    this.isSubmitting = false; // Reset submitting state
+                    // Redirect or show success message
+                },
+                error: err => {
+                    console.error('Registration failed:', err);
+                    this.errorMessage = 'Registration failed. Please try again.';
+                    this.isSubmitting = false; // Reset submitting state
+                }
+            });
+        }
+    }
 }
